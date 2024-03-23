@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="globle.css">
+</head>
+<body>
+  <nav class="mainnav flex">
+    <div class="logo">
+      <h1><a href="/">Gamers<span>Hub</span></a></h1>
+    </div>
+    <div class="navlist">
+      <ul class="flex">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Games<i class="fa-solid fa-angle-down"></i></a></li>
+        <li><a href="/">Community</a></li>
+        <li><a href="/">Contact</a></li>  
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Elden Ring</h1>
+    <div id="trailer" class="trailer hidden">
+      <video width="560" height="315" controls>
+        <source src="vid/videoplayback.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="photos">
+      <img id="trailerImg" src="img/Elden-Ring.png" alt="Trailer Thumbnail" onclick="displayTrailer()">
+      <img src="img/Elden-Ring-2022.02.16-21.00.15.21.mp4_001033644-1024x576.jpg" alt="Screenshot 1" onclick="displayScreenshot('img/Elden-Ring-2022.02.16-21.00.15.21.mp4_001033644-1024x576.jpg')">
+      <img src="img/e3jawkxwuaitfwd.jpeg" alt="Screenshot 2" onclick="displayScreenshot('img/e3jawkxwuaitfwd.jpeg')">
+      <img src="img/eldenring_12_4k-15314260c26db292d294.19097828_wide-161dfc66bc811e88068d50172fabcdd854b56778-s1400-c100.jpg" alt="Screenshot 3" onclick="displayScreenshot('img/eldenring_12_4k-15314260c26db292d294.19097828_wide-161dfc66bc811e88068d50172fabcdd854b56778-s1400-c100.jpg')">
+    </div>
+    
+    <div class="description">
+      <p>This is an amazing game with thrilling gameplay and stunning graphics.</p>
+      <p>Rating: IGN (10/10)</p>
+      <p>Price: $50</p>
+    </div>
+
+    <div class="buttons flex">
+      <button id="addToCartBtn">Add to Cart</button>
+      <button id="buyNowBtn">Buy Now</button>
+    </div>
+  </div>
+  <footer class="copyrightsec flex"> 
+    <div class="copyright container flex">
+        <div class="flex">
+            <h2>Gamers<span>Hub</span></h2>
+            <p>Copyright &copy; 2024 GamersHub - All rights reserved.</p>
+        </div>
+      </footer>
+  <script>
+    window.addEventListener('scroll', toggleAddToCartButton);
+function displayTrailer() {
+  var trailerContainer = document.getElementById("trailer");
+  var addToCartBtn = document.getElementById("addToCartBtn");
+  var trailerImg = document.getElementById("trailerImg");
+
+  // Display the trailer
+  trailerContainer.innerHTML = '<video width="560" height="315" controls><source src="vid/videoplayback.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+  trailerContainer.classList.remove("hidden"); // Show the trailer container
+  trailerImg.classList.add("hidden"); // Hide the trailer image
+  addToCartBtn.classList.add("hidden"); 
+}
+
+function displayScreenshot(imageSrc) {
+  var trailerContainer = document.getElementById("trailer");
+  var addToCartBtn = document.getElementById("addToCartBtn");
+  var trailerImg = document.getElementById("trailerImg");
+
+  // Display the screenshot
+  trailerContainer.innerHTML = ""; // Clear the trailer container
+  var screenshot = document.createElement("img");
+  screenshot.src = imageSrc;
+  screenshot.style.maxWidth = "100%";
+  screenshot.style.height = "auto";
+  trailerContainer.appendChild(screenshot);
+  trailerContainer.classList.remove("hidden"); // Show the trailer container
+  trailerImg.classList.add("hidden"); // Hide the trailer image
+  addToCartBtn.classList.add("hidden"); // Hide the add to cart button
+}
+  </script> 
+
+
+</body>
+</html>
